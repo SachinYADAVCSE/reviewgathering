@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" href="pricing_style.css">
+
+    <script>
+      function updateView() {
+          let mobileView = document.getElementById("mobile-view");
+          let desktopView = document.getElementById("desktop-view");
+  
+          if (window.innerWidth <= 767) {
+              mobileView.style.display = "block";
+              desktopView.style.display = "none";
+          } else {
+              mobileView.style.display = "none";
+              desktopView.style.display = "block";
+          }
+      }
+  
+      window.onload = function () {
+          updateView();
+          window.onresize = updateView;
+  
+          document.querySelectorAll('.pricing-btn').forEach(button => {
+              button.addEventListener('click', function () {
+                  let plan = this.getAttribute('data-plan');
+                  document.getElementById('selected-plan').value = plan;
+                  document.getElementById('signup-modal').style.display = 'block';
+  
+                  if (window.gtag) {
+                      gtag('event', 'pricing_plan_click', {
+                          'event_category': 'engagement',
+                          'event_label': plan
+                      });
+                  }
+              });
+          });
+  
+          // Close Modal
+          document.querySelector('.close-btn').addEventListener('click', function () {
+              document.getElementById('signup-modal').style.display = 'none';
+          });
+  
+          // Close Modal on Outside Click
+          window.onclick = function (event) {
+              let modal = document.getElementById('signup-modal');
+              if (event.target === modal) {
+                  modal.style.display = 'none';
+              }
+          };
+      };
+
+      <!-- From here we have MOBILE VERSION-->
+          document.addEventListener("DOMContentLoaded", function () {
+          function updateView() {
+              let mobileView = document.getElementById("mobile-view");
+              let desktopView = document.getElementById("desktop-view");
+
+              if (window.innerWidth <= 767) {
+                  mobileView.style.display = "block";
+                  desktopView.style.display = "none";
+              } else {
+                  mobileView.style.display = "none";
+                  desktopView.style.display = "block";
+              }
+          }
+
+          updateView();
+          window.onresize = updateView;
+
+          let desktopModal = document.getElementById("signup-modal");
+          let mobileModal = document.getElementById("signup-modal-mobile");
+          let closeButtons = document.querySelectorAll(".close-btn");
+
+          document.querySelectorAll(".pricing-btn").forEach(button => {
+              button.addEventListener("click", function () {
+                  let plan = this.getAttribute("data-plan");
+
+                  if (window.innerWidth <= 767) {
+                      document.getElementById("selected-plan-mobile").value = plan;
+                      mobileModal.style.display = "block";
+                  } else {
+                      document.getElementById("selected-plan").value = plan;
+                      desktopModal.style.display = "block";
+                  }
+
+                  if (window.gtag) {
+                      gtag("event", "pricing_plan_click", {
+                          "event_category": "engagement",
+                          "event_label": plan
+                      });
+                  }
+              });
+          });
+
+          // Close modal when clicking the close button
+          closeButtons.forEach(btn => {
+              btn.addEventListener("click", function () {
+                  mobileModal.style.display = "none";
+                  desktopModal.style.display = "none";
+              });
+          });
+
+          // Close modal when clicking outside the modal
+          window.addEventListener("click", function (event) {
+              if (event.target === desktopModal) {
+                  desktopModal.style.display = "none";
+              }
+              if (event.target === mobileModal) {
+                  mobileModal.style.display = "none";
+              }
+          });
+      });
+      
+  </script>
+  
+    
+</head>
+<body>
+        <!--Desktop Content-->
+        <div id="desktop-view">
+      
+        <!-- Hidden Signup Form Modal -->
+        <div id="signup-modal" class="modal">
+          <div class="modal-content">
+              <span class="close-btn">&times;</span>
+              <h2>Join the Waitlist & Get a Discount!</h2>
+              <form id="waitlist-form" action="https://submit-form.com/UUngMWThI" method="POST">
+                  <input type="text" name="name" class="name" placeholder="Your Name" required>
+                  <input type="email" name="email" class="email" placeholder="Your Email" required>
+                  <input type="hidden" name="selected-plan" id="selected-plan">
+                  <button type="submit">Join Now</button>
+              </form>
+          </div>
+        </div>
+
+
+        <div class="frame_0" >
+            <div class="group_1" >
+              <img src="images/Review.png"  class="rectangle_2" ></img>
+              <span class="text_3" >
+                Pricing
+              </span>
+              <div class="frame_4" >
+                <div class="frame_5" >
+                  <span class="text_6" >
+                    Standard
+                  </span>
+                  <span class="text_7" >
+                    50-100 New Customers Per Month
+                  </span>
+                </div>
+                <div class="frame_8" >
+                  <div class="frame_9" >
+                    <span class="text_10" >
+                      Most Popular
+                    </span>
+                  </div>
+                </div>
+                <span class="text_11" >
+                  Get 4x More Reviews & Referrals
+                </span>
+                <div class="frame_12" >
+                  <div class="frame_13" >
+                    <div class="group_14" >
+                     <img src="blob:null/dbdc7a7a-07e0-4143-be19-fc4d84c57233"  class="vector_17" ></img>
+                    </div>
+                  </div>
+                </div>
+                
+                <span class="text_19" >
+                  Automated Text & Email Requests
+                </span>
+                <div class="frame_20" >
+                  <div class="frame_21" >
+                    <div class="group_22" >
+                     <img src="blob:null/e5c56053-021c-43c8-88d6-bed17cdbea1c"  class="vector_25" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_26" >
+                  Personalized Image Requests
+                </span>
+                <div class="frame_27" >
+                  <div class="frame_28" >
+                    <div class="group_29" >
+                      <img src="blob:null/c2fb1461-8a3c-4a2a-bcd6-12197c712427"  class="vector_32" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_33" >
+                  Automated Social Review Sharing
+                </span>
+                <div class="frame_34" >
+                  <div class="frame_35" >
+                    <div class="group_36" >
+                      <img src="blob:null/c3e8d33c-e13a-4cca-b51c-efee180b011a"  class="vector_39" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_41" >
+                  Automated AI Review Responses
+                </span>
+                <div class="frame_42" >
+                  <div class="frame_43" >
+                    <div class="group_44" >
+                      <img src="blob:null/d46d8588-a21b-40d0-b8e4-97df1d8be821"  class="vector_47" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_48" >
+                  Done For You Custom Integration
+                </span>
+                <div class="frame_49" >
+                  <div class="frame_50" >
+                    <div class="group_51" >
+                       <img src="blob:null/2f7b1e01-cb14-4319-938d-77d0e85cd251"  class="vector_54" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_56" >
+                  Review Filtering System
+                </span>
+                <div class="frame_57" >
+                  <div class="frame_58" >
+                    <div class="group_59" >
+                      <img src="blob:null/f54f54e1-7ce3-461a-a2c1-7cbe3adaf512"  class="vector_62" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_63" >
+                  $ 
+                </span>
+                <span class="text_64" >
+                  179
+                </span>
+                <span class="text_66" >
+                  /  month
+                </span>
+                <div class="frame_67" >
+                  <span class="text_68">
+                    <button class="pricing-btn" class="main-button" >Standard</button>
+                  </span>
+                </div>
+              </div>
+              <div class="frame_69" >
+                <div class="frame_70" >
+                  <span class="text_71" class="pricing-btn" type="button" >
+                    Starter
+                  </span>
+                  <span class="text_72" >
+                    Less than 50 New Customers Per Month
+                  </span>
+                </div>
+                <span class="text_73" >
+                  Get 4x More Reviews & Referrals
+                </span>
+                <div class="frame_74" >
+                  <div class="frame_75" >
+                    <div class="group_76" >
+                       <img src="blob:null/f9a60523-f5cc-448c-86b3-bff453fcb00c"  class="vector_79" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_81" >
+                  Automated Text & Email Requests
+                </span>
+                <div class="frame_82" >
+                  <div class="frame_83" >
+                    <div class="group_84" >
+                      <img src="blob:null/30b0d239-6ba9-4c9b-b8f2-11aa87d05352"  class="vector_87" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_88" >
+                  Personalized Image Requests
+                </span>
+                <div class="frame_89" >
+                  <div class="frame_90" >
+                    <div class="group_91" >
+                     <img src="blob:null/db60d5ac-e9fb-431f-a508-8a00a1d3884a"  class="vector_94" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_95" >
+                  Automated Social Review Sharing
+                </span>
+                <div class="frame_96" >
+                  <div class="frame_97" >
+                    <div class="group_98" >
+                      <img src="blob:null/9c08666c-fb81-4bef-ab94-864b4174ae62"  class="vector_101" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_103" >
+                  Automated AI Review Responses
+                </span>
+                <div class="frame_104" >
+                  <div class="frame_105" >
+                    <div class="group_106" >
+                     <img src="blob:null/18a59e1c-8cf1-4c42-ad62-bae1f0d066f2"  class="vector_109" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_110" >
+                  Done For You Custom Integration
+                </span>
+                <div class="frame_111" >
+                  <div class="frame_112" >
+                    <div class="group_113" >
+                      <img src="blob:null/15cf6baa-97ea-4b4e-b05c-8b09bf91ae9e"  class="vector_116" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_118" >
+                  Review Filtering System
+                </span>
+                <div class="frame_119" >
+                  <div class="frame_120" >
+                    <div class="group_121" >
+                     <img src="blob:null/fa9db237-ee70-4f3e-b69c-7bd0b00dbb66"  class="vector_124" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_125" >
+                  $ 
+                </span>
+                <span class="text_126" >
+                  99
+                </span>
+                <span class="text_128" >
+                  /  month
+                </span>
+                <div class="frame_129" >
+                  <span class="text_130" >
+                    <button class="pricing-btn" data-plan="Basic Plan">Starter</button>
+                  </span>
+                </div>
+              </div>
+              <div class="frame_131" >
+                <div class="frame_132" >
+                  <span class="text_133" >
+                    Scale
+                  </span>
+                  <span class="text_134" >
+                    100-300 New Customers Per Month
+                  </span>
+                </div>
+                <span class="text_135" >
+                  Get 4x More Reviews & Referrals
+                </span>
+                <div class="frame_136" >
+                  <div class="frame_137" >
+                    <div class="group_138" >
+                       <img src="blob:null/b2671cc4-18f6-4b65-a53f-1720e409e8a1"  class="vector_141" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_143" >
+                  Automated Text & Email Requests
+                </span>
+                <div class="frame_144" >
+                  <div class="frame_145" >
+                    <div class="group_146" >
+                      <img src="blob:null/def988f7-b9fc-4fb5-8590-40c2bec27115"  class="vector_149" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_150" >
+                  Personalized Image Requests
+                </span>
+                <div class="frame_151" >
+                  <div class="frame_152" >
+                    <div class="group_153" >
+                     <img src="blob:null/cb06e2ee-28ba-4374-b54d-3124dcafed60"  class="vector_156" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_157" >
+                  Automated Social Review Sharing
+                </span>
+                <div class="frame_158" >
+                  <div class="frame_159" >
+                    <div class="group_160" >
+                      <img src="blob:null/6e09999d-f44e-46b7-a109-3f12ef09ab3b"  class="vector_163" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_165" >
+                  Automated AI Review Responses
+                </span>
+                <div class="frame_166" >
+                  <div class="frame_167" >
+                    <div class="group_168" >
+                       <img src="blob:null/42bd3f45-43fa-4cc8-9efd-4745852104bf"  class="vector_171" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_172" >
+                  Done For You Custom Integration
+                </span>
+                <div class="frame_173" >
+                  <div class="frame_174" >
+                    <div class="group_175" >
+                      <img src="blob:null/2b72ccfd-1ee5-49c0-b330-7028f6b0f3f2"  class="vector_178" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_180" >
+                  Review Filtering System
+                </span>
+                <div class="frame_181" >
+                  <div class="frame_182" >
+                    <div class="group_183" >
+                    <img src="blob:null/a37f393d-b6de-4b73-b6d3-2d37bc7b7ca4"  class="vector_186" ></img>
+                    </div>
+                  </div>
+                </div>
+                <span class="text_187" >
+                  $ 
+                </span>
+                <span class="text_188" >
+                  279
+                </span>
+                <span class="text_190" >
+                  /  month
+                </span>
+                <div class="frame_191" >
+                  <span class="">
+                    <button class="pricing-btn">Scale</button> 
+                  </span>
+                </div>
+              </div>
+              <div class="frame_194" >
+                <div class="frame_195" >
+                  <span class="text_196" >
+                    Terms of Service
+                  </span>
+                </div>
+                <div class="frame_197" >
+                  <span class="text_198" >
+                    Privacy Policy
+                  </span>
+                </div>
+                <div class="frame_199" >
+                  <span class="text_200" >
+                    Contact
+                  </span>
+                </div>
+                <div class="frame_201" >
+                  <span class="text_202" >
+                    Blog
+                  </span>
+                </div>
+                <div class="frame_203" >
+                  <span class="text_204" >
+                    What's new
+                  </span>
+                </div>
+                <div class="frame_205" >
+                  <span class="text_206" >
+                    Twitter
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+        <!-- Mobile Content -->
+        <div id="mobile-view">
+
+        <!-- Mobile Signup Form Modal -->
+        <!-- Mobile Signup Form Modal -->
+        <div id="signup-modal-mobile" class="modal">
+          <div class="modal-content">
+              <span class="close-btn">&times;</span>
+              <h2>Join the Waitlist & Get a Discount!</h2>
+              <form id="waitlist-form-mobile" action="https://submit-form.com/UUngMWThI" method="POST">
+                  <input type="text" name="name_mobile" class="name-mobile" placeholder="Your Name" required>
+                  <input type="email" name="email_mobile" class="email-mobile" placeholder="Your Email" required>
+                  <input type="hidden" name="selected-plan-mobile" id="selected-plan-mobile">
+                  <button type="submit">Join Now</button>
+              </form>
+          </div>
+        </div>
+
+
+
+            <div class="frame_0" >
+                <div class="group_1" >
+                  <div class="frame_2" >
+                    <img src="images/Review.png"  class="rectangle_3" ></img>
+                    <span class="text_4" >
+                      Pricing
+                    </span>
+                    <div class="frame_5" >
+                      <div class="frame_6" >
+                        <span class="text_7"  class="pricing-btn">
+                          Starter
+                        </span>
+                        <span class="text_8" >
+                          Less than 50 New Customers Per Month
+                        </span>
+                      </div>
+                      
+                      <span class="text_10" >
+                        Get 4x More Reviews & Referrals
+                      </span>
+                    
+                      <div class="frame_11" >
+                        <div class="frame_12" >
+                          <div class="group_13" >
+
+                          
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_17" >
+                        Automated Text & Email Requests
+                      </span>
+                      <div class="frame_18" >
+                        <div class="frame_19" >
+                          <div class="group_20" >
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <span class="text_25" >
+                        Personalized Image Requests
+                      </span>
+                      <div class="frame_26" >
+                        <div class="frame_27" >
+                          <div class="group_28" >
+                           </div>
+                        </div>
+                      </div>
+                      <span class="text_32" >
+                        Automated Social Review Sharing
+                      </span>
+                      <div class="frame_33" >
+                        <div class="frame_34" >
+                          <div class="group_35" >
+                            <img src="blob:null/7e7528f8-58d7-4f19-85a5-70d95f6bd228"  class="vector_38" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <span class="text_40" >
+                        Automated AI Review Responses
+                      </span>
+                      <div class="frame_41" >
+                        <div class="frame_42" >
+                          <div class="group_43" >
+                            <img src="blob:null/e15aad57-b12a-40aa-9913-cb07c146d318"  class="vector_46" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_47" >
+                        Done For You Custom Integration
+                      </span>
+                      <div class="frame_48" >
+                        <div class="frame_49" >
+                          <div class="group_50" >
+                           <img src="blob:null/93ec2b5b-fbfa-4e09-bc8f-416ab5de1dc7"  class="vector_53" ></img>
+                          </div>
+                        </div>
+                      </div>
+                    
+                      <span class="text_55" >
+                        Review Filtering System
+                      </span>
+                      <div class="frame_56" >
+                        <div class="frame_57" >
+                          <div class="group_58" >
+                           <img src="blob:null/cb38c0ba-9182-41a6-a721-83f9f16e0e23"  class="vector_61" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_62" >
+                        $ 
+                      </span>
+                      <span class="text_63" >
+                        99
+                      </span>
+                      <span class="text_64" >
+                        /  month
+                      </span>
+                      <div class="frame_65" >
+                        <span class="text_66" >
+                          <button class="pricing-btn" data-plan="Basic Plan">Starter</button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="frame_67" >
+                      <div class="frame_68" >
+                        <span class="text_69" >
+                          Standard
+                        </span>
+                        <span class="text_70" >
+                          50-100 New Customers Per Month
+                        </span>
+                      </div>
+                      <div class="frame_71" >
+                        <div class="frame_72" >
+                          <span class="text_73" >
+                            Most Popular
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <span class="text_75" >
+                        Get 4x More Reviews & Referrals
+                      </span>
+                      <div class="frame_76" >
+                        <div class="frame_77" >
+                          <div class="group_78" >
+                           <img src="blob:null/caf36d22-bba7-447f-90ba-3f35d47623df"  class="vector_81" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_82" >
+                        Automated Text & Email Requests
+                      </span>
+                      <div class="frame_83" >
+                        <div class="frame_84" >
+                          <div class="group_85" >
+                            <img src="blob:null/83c05d9d-7431-4372-83fb-c77d58895f99"  class="vector_88" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_90" >
+                        Personalized Image Requests
+                      </span>
+                      <div class="frame_91" >
+                        <div class="frame_92" >
+                          <div class="group_93" >
+                           <img src="blob:null/1a49a5da-75cd-4597-8a46-ec351c255abf"  class="vector_96" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_97" >
+                        Automated Social Review Sharing
+                      </span>
+                      <div class="frame_98" >
+                        <div class="frame_99" >
+                          <div class="group_100" >
+                           <img src="blob:null/8072938d-3943-49a2-94fc-ce8f627847f7"  class="vector_103" ></img>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      <span class="text_105" >
+                        Automated AI Review Responses
+                      </span>
+                      <div class="frame_106" >
+                        <div class="frame_107" >
+                          <div class="group_108" >
+                             <img src="blob:null/62619b3e-0950-4f93-93d1-6b642c15a59d"  class="vector_111" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_112" >
+                        Done For You Custom Integration
+                      </span>
+                      <div class="frame_113" >
+                        <div class="frame_114" >
+                          <div class="group_115" >
+                            <img src="blob:null/4afd39d9-02a6-4ea9-afc5-7aecf7e6e8c2"  class="vector_118" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_120" >
+                        Review Filtering System
+                      </span>
+                      <div class="frame_121" >
+                        <div class="frame_122" >
+                          <div class="group_123" >
+                            <img src="blob:null/0d41c147-670c-4fc0-a839-c9413b62056f"  class="vector_126" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_127" >
+                        $ 
+                      </span>
+                      <span class="text_128" >
+                        179
+                      </span>
+                      <span class="text_129" >
+                        /  month
+                      </span>
+                      <div class="frame_130" >
+                        <span class="text_131" >
+                          <button class="pricing-btn" data-plan="Standard Plan">Standard</button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="frame_132" >
+                      <div class="frame_133" >
+                        <span class="text_134" >
+                          Scale
+                        </span>
+                        <span class="text_135" >
+                          100-300 New Customers Per Month
+                        </span>
+                      </div>
+                     
+                      <span class="text_137" >
+                        Get 4x More Reviews & Referrals
+                      </span>
+                      <div class="frame_138" >
+                        <div class="frame_139" >
+                          <div class="group_140" >
+                            <img src="blob:null/2fff10cb-0ba6-4353-8bc4-39de2e4eb6e8"  class="vector_143" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_144" >
+                        Automated Text & Email Requests
+                      </span>
+                      <div class="frame_145" >
+                        <div class="frame_146" >
+                          <div class="group_147" >
+                            <img src="blob:null/40bee6bc-c851-4b01-be35-16678ec228d8"  class="vector_150" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <span class="text_152" >
+                        Personalized Image Requests
+                      </span>
+                      <div class="frame_153" >
+                        <div class="frame_154" >
+                          <div class="group_155" >
+                            <img src="blob:null/804a9378-fb04-45ac-9c9f-9cc0e3e6b38e"  class="vector_158" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_159" >
+                        Automated Social Review Sharing
+                      </span>
+                      <div class="frame_160" >
+                        <div class="frame_161" >
+                          <div class="group_162" >
+                             <img src="blob:null/949718b5-2318-458f-a945-9e4c0a7602a5"  class="vector_165" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_167" >
+                        Automated AI Review Responses
+                      </span>
+                      <div class="frame_168" >
+                        <div class="frame_169" >
+                          <div class="group_170" >
+                             <img src="blob:null/f0e83374-093b-42f4-8434-4fd367e6fb76"  class="vector_173" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_174" >
+                        Done For You Custom Integration
+                      </span>
+                      <div class="frame_175" >
+                        <div class="frame_176" >
+                          <div class="group_177" >
+                            <img src="blob:null/5e939a1b-a078-456b-82d1-aee6e167c0f3"  class="vector_180" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_182" >
+                        Review Filtering System
+                      </span>
+                      <div class="frame_183" >
+                        <div class="frame_184" >
+                          <div class="group_185" >
+                           <img src="blob:null/cd55d6fa-eb9a-440c-805e-17854614bebd"  class="vector_188" ></img>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="text_189" >
+                        $ 
+                      </span>
+                      <span class="text_190" >
+                        279
+                      </span>
+                      <span class="text_191" >
+                        /  month
+                      </span>
+                      <div class="frame_192" >
+                        <span class="text_193" >
+                          <button class="pricing-btn" data-plan="Scale Plan">Scale</button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="group_194" >
+                      <div class="frame_195" >
+                        <span class="text_196" >
+                          Terms of Service
+                        </span>
+                      </div>
+                      <div class="frame_197" >
+                        <span class="text_198" >
+                          Privacy Policy
+                        </span>
+                      </div>
+                      <div class="frame_199" >
+                        <span class="text_200" >
+                          Contact
+                        </span>
+                      </div>
+                    </div>
+                    <div class="frame_201" >
+                      <span class="text_202" >
+                        Twitter
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+</body>
+</html>
